@@ -16,16 +16,11 @@ pipeline {
         }
         
 
-    stage("Terraform Plan") {
-    steps {
-        script {
-            def planOutput = sh(script: "terraform plan", returnStdout: true)
-            echo planOutput
-         }
-       }
-   }
-
-
+     stage ("terraform Plan") {
+            steps {
+                sh ("terraform plan") 
+            }
+        }
 
 
 
