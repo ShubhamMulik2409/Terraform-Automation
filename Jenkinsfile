@@ -15,12 +15,23 @@ pipeline {
               }
         }
         
-    stage ("terraform Plan") {
-            steps {
-                sh ("terraform plan") 
-            }
-        }
 
+    stage("Terraform Plan") {
+    steps {
+        script {
+            def planOutput = sh(script: "terraform plan", returnStdout: true)
+            echo planOutput
+         }
+       }
+   }
+
+
+
+
+
+
+
+        
     stage ("Action") {
             steps {
                 echo "Terraform action is --> ${action}"
